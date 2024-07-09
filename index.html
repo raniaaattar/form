@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./iutput.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        input:hover {
+            border-color: green;
+            cursor: pointer;
+        }
+
+        .test:has(input[type=radio]:checked+label) {
+            background-color: #E0F1E8;
+        }
+        .required {
+        color: #0C7D69;
+}
+    </style>
+
+</head>
+
+<body style="background-color:  #E0F1E8">
+    <div class=" fixed top-0 left-1/2 transform -translate-x-1/2 inset-x-0 bg-gray-900 bg-opacity-75 rounded-md w-[450px] h-[107px]"
+        id="overlay" style="display:none;">
+        <div class="p-4 mb-4" id="success-message" style="display:none;">
+            <div class=" justify-between items-center mb-2">
+                <div class="grid lg:grid-cols-2">
+                    <img src="imgg.jpg" class=" left:0px w-[19.5px] h-[19.5px]">
+                    <h2 class="text-lg font-m-bold text-2xl text-white 	 w-[124px] h-[27px] font-size mb-2 ">Message Sent!</h2>
+                </div>
+            </div>
+            <div class="text-green-200">
+                <p>Thanks for completing the form. We'll be in touch soon!</p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="min-h-screen py-40 md:p-12 lg:p-24">
+        <div class="container mx-auto bg-white border border-spacing-52 rounded-2xl   p-10 w-[736px] h-full ">
+            <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 mx-auto  overflow-hidden"></div>
+            <header class="mt-5"> </header>
+
+            <th1 class="front-barlow text-2xl font-bold gap-5 w-[656px] h-[32px]">Contact Us</th1><br><br>
+            <form id="myForm">
+                <div class="grid lg:grid-cols-2  sm:grid-cols-1 gap-5 grid-cols-1">
+                    <div class="mb-4">
+                        <label class="block text-grey-500 w-half h-[24px] leading-7" for="fname">First Name <span class="required">*</span></label>
+                        <input class="border border-green-950 rounded-lg py-1 px-2  w-[320px] h-[51px]" class="fname"
+                            id="fname" type="text">
+                        <p class="text-red-500 text-xs italic" id="first-error" style="display:none;">This field is
+                            required</p>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-grey-500 w-half h-[24px] leading-7" for="lname">Last Name <span class="required">*</span></label>
+                        <input class="border border-green-950 rounded-lg py-1 px-2  w-[320px] h-[51px]" class="lname"
+                            type="text" id="lname">
+                        <p class="text-red-500 text-xs " id="last-error" style="display:none;">This field is required
+                        </p>
+                    </div>
+                </div>
+                <label for="email" class="text-grey-500 w-[320px] h-[24px] leading-7 "> Email Address <span class="required">*</span></label><br>
+                <input type="email" id="email" name="email" errorMessage="Please enter a valid email addres"
+                    class="border border-green-950 rounded-lg py-1 px-2  w-[656px] h-[51px]"><br>
+                <p class="text-red-500 text-xs " id="email-error" style="display:none;">Please enter a valid email
+                    address</p><br>
+
+                <label class="text-green-900  w-[656px] h-[441px] leading-8 ">Query Type <span class="required">*</span></label>
+                <div class="">
+                    <div class="  grid lg:grid-cols-2  sm:grid-cols-1 gap-5 grid-cols-1 ">
+                        <div class="inline-flex p-4 border   border-green-900 rounded-lg w-half  test ">
+                            <input type="radio" id="general" name="QueryType"
+                                class="m-2  form-radio h-5 w-5 accent-green-600"
+                                class="border border-green-900 rounded-lg py-1 px-3 ">
+                            <label for="General_Enquiry" class=" m-2 " class="inline-flex items-center"
+                                class="ml-2 text-gray-700" text-xl> General Enquiry</label>
+                        </div>
+                        <div class="inline-flex p-4 border border-green-900 rounded-lg w-half test" >
+                            <input type="radio" id="support" name="QueryType"
+                                class="m-2 form-radio h-5 w-5 accent-green-600">
+                            <label for="support" class="m-2 ml-2 text-gray-700">Support Request</label>
+                        </div>
+
+                        <p class="text-red-500 text-xs" id="querytype-error" style="display:none;">Please select a query
+                            type</p>
+                    </div>
+                </div>
+
+                <label for="lname" class="text-green-900 w-[320px] h-[24px] leading-7">Message <span class="required">*</span></label><br>
+                <input name="message" id="message" type="text"
+                    class="border border-green-900 rounded-lg   w-[656px] h-[105px] mt-2"></textarea>
+                <br>
+                <p class="text-red-500 text-xs" id="message-error" style="display:none;">This field is required</p>
+                <br>
+                <input type="checkbox" name="accept" id="consent" class="border border-green-900  accent-green-600  ">
+                <label for="accept" class="text-green-900 w-[320px] h-[24px] m-2"> I consent to being contacted by the
+                    team *</label>
+                <p class="text-red-500 text-xs " id="consent-error" style="display:none;">To submit this form, please
+                    consent to being contacted</p>
+                <br><br>
+                <button type="submit" onClick="testResults(this.form)" name="submit"
+                    class=" bg-green-800 py-3 text-center text-white rounded  h-[51px] w-full">Submit</button>
+
+        </div>
+        </form>
+    </div>
+    <script>
+       const form = document.getElementById('myForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      testResults(form);
+    });
+
+    function testResults(form) {
+      const firstname = document.getElementById('fname').value.trim();
+      const lastname = document.getElementById('lname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      let queryType;
+      document.getElementsByName('QueryType').forEach(r => {
+        if (r.checked) {
+          queryType = r.value;
+        }
+      });
+      const message = document.getElementById('message').value.trim();
+      const consent = document.getElementById('consent').checked;
+
+      let isValid = true;
+
+      if (firstname === '') {
+        document.getElementById('first-error').style.display = 'block';
+        document.getElementById('fname').classList.add('border-red-500');
+        isValid = false;
+      } else {
+        document.getElementById('first-error').style.display = 'none';
+        document.getElementById('fname').classList.remove('border-red-500');
+      }
+
+      if (lastname === '') {
+        document.getElementById('last-error').style.display = 'block';
+        document.getElementById('lname').classList.add('border-red-500');
+        isValid = false;
+      } else {
+        document.getElementById('last-error').style.display = 'none';
+        document.getElementById('lname').classList.remove('border-red-500');
+      }
+
+      if (email === '') {
+        document.getElementById('email-error').style.display = 'block';
+        document.getElementById('email').classList.add('border-red-500');
+        isValid = false;
+      } else {
+        document.getElementById('email-error').style.display = 'none';
+        document.getElementById('email').classList.remove('border-red-500');
+      }
+
+      if (!queryType) {
+        document.getElementById('querytype-error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('querytype-error').style.display = 'none';
+      }
+
+      if (message === '') {
+        document.getElementById('message-error').style.display = 'block';
+        document.getElementById('message').classList.add('border-red-500');
+        isValid = false;
+      } else {
+        document.getElementById('message-error').style.display = 'none';
+        document.getElementById('message').classList.remove('border-red-500');
+      }
+
+      if (!consent) {
+        document.getElementById('consent-error').style.display = 'block';
+        document.getElementById('consent').classList.add('border-red-500');
+        isValid = false;
+      } else {
+        document.getElementById('consent-error').style.display = 'none';
+        document.getElementById('consent').classList.remove('border-red-500');
+      }
+
+      if (isValid) {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('success-message').style.display = 'block';
+      }
+
+    
+    document.getElementById('fname').addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                document.getElementById('first-error').style.display = 'none';
+                document.getElementById('fname').classList.remove('border-red-500');
+            }
+        });
+
+        document.getElementById('lname').addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                document.getElementById('last-error').style.display = 'none';
+                document.getElementById('lname').classList.remove('border-red-500');
+            }
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                document.getElementById('email-error').style.display = 'none';
+                document.getElementById('email').classList.remove('border-red-500');
+            }
+        });
+
+        document.querySelectorAll('input[name="QueryType"]').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                document.getElementById('querytype-error').style.display = 'none';
+            });
+        });
+
+        document.getElementById('consent').addEventListener('input', function() {
+            if (this.checked) {
+                document.getElementById('consent-error').style.display = 'none';
+                document.getElementById('consent').classList.remove('border-red-500');
+            }
+          });
+
+        document.getElementById('message').addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                document.getElementById('message-error').style.display = 'none'
+                document.getElementById('message').classList.remove('border-red-500');
+            }}); 
+            if (isValid) {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('success-message').style.display = 'block';
+  }
+           }
+       </script> 
+</body>
